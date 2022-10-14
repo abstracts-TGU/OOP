@@ -6,14 +6,41 @@ class TreeItem{
 		this.value = value
 	}
 }
+import fs from 'fs'
 
 export default class Tree{
-	root  	
+	root
 
 	constructor(){
 		this.root = null
 	}
 
+	saveToFile(file='test.txt'){
+		let out = this.#saveToFile(this.root)
+		fs.writeFileSync('test.txt', out)
+
+	}
+	#saveToFile(root = this.root){
+		if (root === null)
+			return ''
+		let out = root.value.toString()
+		if (root.left !== null) {
+			out = out + " " + this.#saveToFile(root.left)
+		}
+		if (root.right !== null) {
+			out = out + " " + this.#saveToFile(root.right)
+		}
+		return out
+	}
+
+	loadFromFile(file='test.txt'){
+		this.root = null
+		const data = fs.readFileSync(file,'utf8')
+		let arr = data.split(' ')
+		arr.forEach((value)=>{
+			this.addItem(value)
+		})
+	}
 	addItem(value){
 		const newNode = new TreeItem(value);
 

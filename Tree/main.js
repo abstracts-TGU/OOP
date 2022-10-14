@@ -13,9 +13,13 @@ tree.addItem(50);
 tree.addItem(55);
 
 
+// console.log(tree.toString())
+// console.log(tree.deleteRoot(70));
 console.log(tree.toString())
-console.log(tree.deleteRoot(70));
+console.log("-------------")
+tree.loadFromFile()
 console.log(tree.toString())
+
 
 /*
 5
