@@ -1,5 +1,11 @@
 html{
+    --color1: #545454;
     overflow: hidden;
+    background-image: repeating-linear-gradient( -45deg,
+    #c1c1c1 0,
+    black 300px,
+    var(--color1) 300px,
+    var(--color1) 600px );
 }
 *{
     padding: 0;
