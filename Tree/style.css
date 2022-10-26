@@ -17,33 +17,34 @@ html{
     width: 100vw;
     height: 100vh;
     cursor: grab;
+    transition: 0.2s;
 }
 .node{
     width: 100px;
     height: 100px;
     position: absolute;
-    top:100px;
-    transform: scale(0.7);
+    top:0px;
+    transform: scale(0.5);
 }
 .node-left::before{
     position: absolute;
     content: "";
     width: 1px;
     background: black;
-    height: 150px;
-    left: 100px;
-    top:-15px;
-    transform: rotate(35deg);
+    height: 82px;
+    left: 93px;
+    top: -33px;
+    transform: rotate(57deg);
 }
 .node-right::before{
     position: absolute;
     content: "";
     width: 1px;
     background: black;
-    height: 150px;
-    right: 0px;
-    top:-15px;
-    transform: rotate(-35deg);
+    height: 82px;
+    left: 6px;
+    top: -33px;
+    transform: rotate(-57deg);
 }
 .node-value{
     background: wheat;
@@ -81,11 +82,14 @@ body{
     z-index: 100;
     top: 0;
     left: 0;
-    width: 100%;
     display: flex;
+    background: #ebebeb;
     gap: 10px;
     flex-direction: column;
     padding: 10px;
+    border-right: black 1px solid;
+    border-bottom: black 1px solid;
+    box-shadow: 0 0 12px #000000a1;
 }
 button{
     width: 100px;

@@ -89,13 +89,14 @@ let removeNumBtn = document.querySelector('#removeNumBtn')
 let removeNumInput = document.querySelector('#removeNumInput')
 let addNumInput = document.querySelector('#Num')
 let treeView = document.querySelector('.treeView')
-treeView.style.zoom = 2;
+treeView.style.zoom = 4;
 
 zoomInBtn.addEventListener('click', ()=>{
-    treeView.style.zoom = parseFloat(treeView.style.zoom) + 0.2;
+    treeView.style.zoom = parseFloat(treeView.style.zoom) * 1.2;
 })
 zoomOutBtn.addEventListener('click', ()=>{
-    treeView.style.zoom = parseFloat(treeView.style.zoom) - 0.2;
+    if (parseFloat(treeView.style.zoom) <= 1) return
+    treeView.style.zoom = parseFloat(treeView.style.zoom) /1.2;
 })
 
 clearTreeBtn.addEventListener('click', ()=>{
@@ -121,9 +122,13 @@ document.addEventListener('mouseup', ()=>{
 })
 treeView.addEventListener('mousemove', (e)=>{
     if (!mouseDown) return
-    xNav +=e.movementX;
-    yNav +=e.movementY;
+    xNav +=e.movementX/treeView.style.zoom;
+    yNav +=e.movementY/treeView.style.zoom;
     Object.assign(treeHTML.style, {
         transform: 'translate('+xNav+'px,'+yNav+'px)'
     })
+})
+document.addEventListener('wheel',(e)=>{
+    if (e.deltaY < 0) zoomInBtn.click()
+    if (e.deltaY > 0) zoomOutBtn.click()
 })
