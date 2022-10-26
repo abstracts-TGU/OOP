@@ -5,8 +5,15 @@
   "main": "main.js",
   "type": "module",
   "scripts": {
-    "start" : "node main.js" 
+    "start": "polymer serve"
   },
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "jquery": "^3.6.1",
+    "lodash": "^4.17.21"
+  },
+  "devDependencies": {
+    "polymer-cli": "^1.9.11"
+  }
 }

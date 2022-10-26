@@ -41,6 +41,7 @@ export default class Tree{
 			this.addItem(value)
 		})
 	}
+
 	addItem(value){
 		const newNode = new TreeItem(value);
 
