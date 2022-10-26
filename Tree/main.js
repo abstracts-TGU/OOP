@@ -89,14 +89,18 @@ let removeNumBtn = document.querySelector('#removeNumBtn')
 let removeNumInput = document.querySelector('#removeNumInput')
 let addNumInput = document.querySelector('#Num')
 let treeView = document.querySelector('.treeView')
-treeView.style.zoom = 4;
+let scale = 4
+treeView.style.transform = 'scale('+scale+')';
 
 zoomInBtn.addEventListener('click', ()=>{
-    treeView.style.zoom = parseFloat(treeView.style.zoom) * 1.2;
+    scale = scale * 1.2
+    treeView.style.transform = 'scale('+scale+')';
+
 })
 zoomOutBtn.addEventListener('click', ()=>{
+    scale = scale / 1.2
     if (parseFloat(treeView.style.zoom) <= 1) return
-    treeView.style.zoom = parseFloat(treeView.style.zoom) /1.2;
+    treeView.style.transform = 'scale('+scale+')';
 })
 
 clearTreeBtn.addEventListener('click', ()=>{
@@ -114,16 +118,16 @@ removeNumBtn.addEventListener('click', ()=>{
 
 // navigations
 
-treeView.addEventListener('mousedown', ()=>{
+document.querySelector('main').addEventListener('mousedown', ()=>{
     mouseDown = true
 })
 document.addEventListener('mouseup', ()=>{
     mouseDown = false
 })
-treeView.addEventListener('mousemove', (e)=>{
+document.querySelector('main').addEventListener('mousemove', (e)=>{
     if (!mouseDown) return
-    xNav +=e.movementX/treeView.style.zoom;
-    yNav +=e.movementY/treeView.style.zoom;
+    xNav +=e.movementX/scale;
+    yNav +=e.movementY/scale;
     Object.assign(treeHTML.style, {
         transform: 'translate('+xNav+'px,'+yNav+'px)'
     })

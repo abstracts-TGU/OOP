@@ -14,10 +14,10 @@ html{
     user-select: none;
 }
 .treeView{
+    padding-top: 40vh;
     width: 100vw;
     height: 100vh;
     cursor: grab;
-    transition: 0.2s;
 }
 .node{
     width: 100px;
@@ -31,31 +31,34 @@ html{
     content: "";
     width: 1px;
     background: black;
-    height: 82px;
-    left: 93px;
-    top: -33px;
-    transform: rotate(57deg);
+    height: 78px;
+    left: 91px;
+    top: -26px;
+    transform: rotate(50deg);
 }
 .node-right::before{
     position: absolute;
     content: "";
     width: 1px;
     background: black;
-    height: 82px;
-    left: 6px;
-    top: -33px;
-    transform: rotate(-57deg);
+    height: 78px;
+    left: 8px;
+    top: -26px;
+    transform: rotate(-50deg);
 }
 .node-value{
     background: wheat;
     margin: auto;
     border-radius: 50%;
-    width: 50px;
-    height: 50px;
+    width: 80px;
+    height: 80px;
     display: flex;
     align-items: center;
     justify-content: center;
     border: 1px black solid;
+    font-size: 30px;
+    font-family: monospace;
+    word-break: break-all;
 }
 .node-right{
     text-align: center;
