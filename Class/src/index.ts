@@ -42,6 +42,9 @@ function launch(x:number,y:number){
     let TTL = getRandomInRange(200,1000)
     let startSize = getRandomInRange(10,30)
     let endSize = getRandomInRange(0,1)
+
+    x = x + getRandomInRange(-10,10)
+    y = y + getRandomInRange(-30,10)
     let Vx = getRandomInRange(-300,300)
     let Vy = getRandomInRange(-300,300)
     let projectile = new Projectile({
