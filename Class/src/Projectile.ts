@@ -81,7 +81,6 @@ export default class Projectile{
         }
         setTimeout(()=>{
             let date = new Date().getTime()
-            console.log(date - this.time)
             t = t + date - this.time
             return this.move(t)
         },0)
