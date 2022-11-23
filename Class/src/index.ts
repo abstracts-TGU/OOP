@@ -39,7 +39,7 @@ function getRandomInRange(min:number,max:number){
     return Math.random() * (max - min) + min;
 }
 function launch(x:number,y:number){
-    let TTL = getRandomInRange(200,1000)
+    let TTL = getRandomInRange(200,2000)
     let startSize = getRandomInRange(10,30)
     let endSize = getRandomInRange(0,1)
 

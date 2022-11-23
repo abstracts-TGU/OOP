@@ -17,11 +17,13 @@ export default class Projectile{
     private y0:number;
     private Vx:number;
     private Vy:number;
+    private Vy0:number;  
     private time:number;
     private root:HTMLElement;
     private r:number;
     private g:number;
     private b:number;
+    private gravity:number = 200;
     ProjectileHTML:HTMLElement;
 
     constructor({startSize,endSize,TTL,root}:ProjectileConstructor) {
@@ -51,7 +53,7 @@ export default class Projectile{
         this.x = x0;
         this.y = y0;
         this.Vx = Vx;
-        this.Vy = Vy;
+        this.Vy = this.Vy0 = Vy;
         this.time = new Date().getTime();
         this.root.append(this.ProjectileHTML)
         this.move(0)
@@ -61,6 +63,7 @@ export default class Projectile{
         this.time = new Date().getTime()
         this.x = this.x0  + this.Vx * t/1000
         this.y = this.y0  + this.Vy * t/1000
+        this.Vy = this.Vy0 + this.gravity * t/1000
         let size = this.size - (this.size - this.endSize) * t/this.TTL
         let r = this.r - (this.r - 100) / this.TTL * t
         let g = this.g - (this.g - 10) / this.TTL * t
