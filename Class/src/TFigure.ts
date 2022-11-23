@@ -1,21 +1,20 @@
 export default class TFigure {
-	protected figure:HTMLElement;
+	protected figure:HTMLCanvasElement;
 	protected x=0;
 	protected y=0;
 
-	constructor(figure:HTMLElement){
-		this.figure = figure
-		this.movementHandler()
+	constructor(){
 	}
 	movementHandler(){
 		let isMouseDown = false
+		this.figure.style.cursor ="grab";
 		this.figure.addEventListener('mousedown',()=>{
 			isMouseDown = true
 		})
-		this.figure.addEventListener('mouseup',()=>{
-			isMouseDown = true
+		document.addEventListener('mouseup',()=>{
+			isMouseDown = false
 		})
-		this.figure.addEventListener('mousemove',(e)=>{
+		document.addEventListener('mousemove',(e)=>{
 			if (!isMouseDown) return
 			this.x+=e.movementX
 			this.y+=e.movementY

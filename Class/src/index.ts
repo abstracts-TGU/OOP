@@ -1,6 +1,6 @@
 import {TPerson,TStudent} from "./uPeoples";
-import "./style.css"
 import TCircle from "./TCircle";
+import TRect from "./TRect";
 // task 1
 
 // let person = new TPerson(14,"Василий")
@@ -12,7 +12,7 @@ import TCircle from "./TCircle";
 // console.log(person.getName())
 
 // task 3
-
+// import "./style.css"
 // import Projectile from "./Projectile";
 // let mouseIsDown = false;
 // let x = 0;
@@ -67,5 +67,6 @@ import TCircle from "./TCircle";
 // },50)
 
 // task 4
-
-let circle1 = new TCircle(document.body,20,20,20)
+let rect = new TRect(document.body,40,60,40,40)
+let rect2 = new TRect(document.body,80,80,40,40)
+let circle1 = new TCircle(document.body,20,50,20)
