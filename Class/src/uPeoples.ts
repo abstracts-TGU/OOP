@@ -22,13 +22,22 @@ export class TPerson {
     getName(){
         return this.FName
     }
+
 }
 
 export class TStudent extends TPerson{
+    getGroup(): string {
+        return this.group;
+    }
+
+    setGroup(value: string) {
+        this.group = value;
+    }
 
 
     private FLevel:number;
     private TRating:number;
+    private group:string
 
     getFLevel(): number {
         return this.FLevel;
@@ -45,4 +54,19 @@ export class TStudent extends TPerson{
     setTRating(value: number) {
         this.TRating = value;
     }
+}
+
+export class TTeacher extends TPerson{
+
+
+    private kaf:string;
+
+    getKaf(): string {
+        return this.kaf;
+    }
+
+    setKaf(value: string) {
+        this.kaf = value;
+    }
+
 }
